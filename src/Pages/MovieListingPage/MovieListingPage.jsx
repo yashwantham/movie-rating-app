@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import "./MovieListingPage.css";
 import { DataContext } from "../../Contexts/DataProvider";
@@ -24,7 +24,34 @@ export function MovieListingPage() {
     }
     console.log(yearList);
 
-    const displayMoviesList = [...dataState.moviesList]
+    /* genreFilterSelected: "all-genre", releaseYearFilterSelected: "release-year", ratingFilterSelected: "rating" */
+    let displayMoviesList = [...dataState.moviesList]
+
+    const genreFilterHandler = (e) => dispatchData({type: "set_genreFilterSelected", payload: e.target.value})
+    const releaseYearFilterHandler = (e) => dispatchData({type: "set_releaseYearFilterSelected", payload: e.target.value})
+    const ratingsFilterHandler = (e) => dispatchData({type: "set_ratingFilterSelected", payload: e.target.value})
+    
+    if(dataState.genreFilterSelected === "all-genre" || dataState.releaseYearFilterSelected === "release-year" || dataState.ratingFilterSelected === "rating") {
+        displayMoviesList = [...dataState.moviesList]
+    }
+
+    if(dataState.genreFilterSelected !== "all-genre") {
+        displayMoviesList = displayMoviesList.filter(({genre}) => genre.includes(dataState.genreFilterSelected))
+    }
+
+    if(dataState.releaseYearFilterSelected !== "release-year") {
+        displayMoviesList = displayMoviesList.filter(({year}) => year == dataState.releaseYearFilterSelected)
+    }
+
+    if(dataState.ratingFilterSelected !== "rating") {
+        displayMoviesList = displayMoviesList.filter(({rating}) => rating == dataState.ratingFilterSelected)
+    }
+
+
+    displayMoviesList = displayMoviesList.filter(({title, cast, director}) => (
+        title.toLowerCase().includes(dataState.searchedTerm.toLowerCase()) || director.toLowerCase().includes(dataState.searchedTerm.toLowerCase()) || cast.some((item) => item.toLowerCase().includes(dataState.searchedTerm.toLowerCase()))
+    ) )
+
 
     return (
         <>
@@ -33,9 +60,9 @@ export function MovieListingPage() {
                     <div className="moviesheading">
                         Movies
                     </div>
-
+                    
                     <div className="genrefilter">
-                        <select name="genrefilter" id="">
+                        <select name="genrefilter" id="" value={dataState.genreFilterSelected} onChange={(e) => genreFilterHandler(e)}>
                             <option value="all-genre">All Genre</option>
                             {genreList?.map((ele, ind) => (
                                 <option value={ele} key={ind}>{ele}</option>
@@ -44,7 +71,7 @@ export function MovieListingPage() {
                     </div>
 
                     <div className="releaseyearfilter">
-                        <select name="releaseyearfilter" id="">
+                        <select name="releaseyearfilter" id="" value={dataState.releaseYearFilterSelected} onChange={(e) => releaseYearFilterHandler(e)}>
                         <option value="release-year">Release Year</option>
                             {yearList?.map((ele,ind) => (
                                 <option value={ele} key={ind}>{ele}</option>
@@ -53,18 +80,18 @@ export function MovieListingPage() {
                     </div>
 
                     <div className="ratingsfilter">
-                        <select name="ratingsfilter" id="">
+                        <select name="ratingsfilter" id="" value={dataState.ratingFilterSelected} onChange={(e) => ratingsFilterHandler(e)}>
                             <option value="rating">Rating</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
+                            <option value={7}>7</option>
+                            <option value={8}>8</option>
+                            <option value={9}>9</option>
+                            <option value={10}>10</option>
                         </select>
                     </div>
 
