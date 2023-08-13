@@ -54,6 +54,7 @@
     font-weight: 600;
     font-size: 15px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .addtowatchlist-btn {
@@ -66,4 +67,10 @@
     font-weight: 600;
     font-size: 15px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.movie-nav {
+    text-decoration: none;
+    color: #000000;
 }

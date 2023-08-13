@@ -4,6 +4,8 @@ import { TopNavBar } from "./Components/TopNavbar/TopNavBar";
 import { MovieListingPage } from "./Pages/MovieListingPage/MovieListingPage";
 import { WatchListPage } from "./Pages/WatchListPage/WatchListPage";
 import { StarredPage } from "./Pages/StarredPage/StarredPage";
+import { AddNewMovie } from "./Pages/AddNewMovie/AddNewMovie";
+import { MovieDetailPage } from "./Pages/MovieDetailPage/MovieDetailPage";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/" element={<MovieListingPage />} />
           <Route path="/watchlist" element={<WatchListPage />} />
           <Route path="/starred" element={<StarredPage />} />
+          <Route path="/addnewmovie" element={<AddNewMovie />} />
+          <Route path="/moviedetail/:movieID" element={<MovieDetailPage />} />
         </Routes>
 
       </div>

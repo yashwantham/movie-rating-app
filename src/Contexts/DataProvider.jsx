@@ -33,6 +33,10 @@ export function DataProvider({children}) {
                 return {...state, starredMovies: action.payload}
             }
 
+            case "set_moviesList": {
+                return {...state, moviesList: action.payload}
+            }
+
             default: {
                 return state
             }
@@ -40,7 +44,7 @@ export function DataProvider({children}) {
         }
     }
 
-    const initialState = {moviesList: localStorage.getItem("movieList") ? JSON.parse(localStorage.getItem("movieList")) : movies, genreFilterSelected: "all-genre", releaseYearFilterSelected: "release-year", ratingFilterSelected: "rating", searchedTerm: "", watchList: localStorage.getItem("watchList") ? JSON.parse(localStorage.getItem("watchList")) : [], starredMovies: localStorage.getItem("starredMovies") ? JSON.parse(localStorage.getItem("starredMovies")) : []}
+    const initialState = {moviesList: localStorage.getItem("moviesList") ? JSON.parse(localStorage.getItem("moviesList")) : movies, genreFilterSelected: "all-genre", releaseYearFilterSelected: "release-year", ratingFilterSelected: "rating", searchedTerm: "", watchList: localStorage.getItem("watchList") ? JSON.parse(localStorage.getItem("watchList")) : [], starredMovies: localStorage.getItem("starredMovies") ? JSON.parse(localStorage.getItem("starredMovies")) : []}
 
     // watchList: localStorage.getItem("watchList") ? JSON.parse(localStorage.getItem("watchList")) : [], starredMovies: localStorage.getItem("starredMovies") ? JSON.parse(localStorage.getItem("starredMovies")) : []}
 

@@ -1,10 +1,13 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import "./MovieListingPage.css";
 import { DataContext } from "../../Contexts/DataProvider";
 import { MovieCard } from "./MovieCard";
+import { useNavigate } from "react-router-dom";
 
 export function MovieListingPage() {
+
+    const navigate = useNavigate();
 
     const { dataState, dispatchData } = useContext(DataContext);
 
@@ -95,7 +98,7 @@ export function MovieListingPage() {
                         </select>
                     </div>
 
-                    <div className="addmoviebtn">
+                    <div className="addmoviebtn" onClick={() => navigate("/addnewmovie")}>
                         Add Movie
                     </div>
 

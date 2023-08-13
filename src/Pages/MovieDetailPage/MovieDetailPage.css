@@ -1,0 +1,42 @@
+
+
+.moviedetail-card {
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem auto;
+    width: 70vw;
+    /* height: 80vh; */
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+
+}
+
+.imgcontainer-dp {
+    height: 25rem;
+    width: 20rem;
+}
+
+.img-dp {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.moviecontent-dp {
+    padding: 0 2rem;
+    text-align: left;
+}
+
+.movietitle-dp {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.mr-tb {
+    padding: 0.55rem 0;
+}
+
+.btns-dp {
+    justify-content: space-between;
+}

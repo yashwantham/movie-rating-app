@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "./MovieCard.css";
 import { DataContext } from "../../Contexts/DataProvider";
+import { NavLink } from "react-router-dom";
 
 export function MovieCard({ movie }) {
 
@@ -37,40 +38,42 @@ export function MovieCard({ movie }) {
     return (
         <>
             <div className="moviecard-container">
-                <div className="moviecardimg-container">
-                    <img src={movie.imageURL} alt="" className="moviecardimg" />
-                </div>
-                <div className="movie-content-n-btns">
-                    <div className="moviecard-title contentd">
-                        {movie.title}
+                <NavLink to={`/moviedetail/${movie.id}`} className="movie-nav">
+                    <div className="moviecardimg-container">
+                        <img src={movie.imageURL} alt="" className="moviecardimg" />
                     </div>
-                    <div className="moviecard-summary contentd">
-                        {movie.summary.length > 120 ? `${movie.summary.substring(0, 120)}...` : movie.summary}
-                    </div>
-                    <div className="moviecard-btns-container contentd">
-                        {isStarred(movie.id) ? (
-                            <div className="star-btn" onClick={unstarHandle}>
-                                Starred
-                            </div>
-                        ) : (
-                            <div className="star-btn" onClick={starHandle}>
-                                Star
-                            </div>
-                        )}
+                    <div className="movie-content-n-btns">
+                        <div className="moviecard-title contentd">
+                            {movie.title}
+                        </div>
+                        <div className="moviecard-summary contentd">
+                            {movie.summary.length > 120 ? `${movie.summary.substring(0, 120)}...` : movie.summary}
+                        </div>
+                        <div className="moviecard-btns-container contentd">
+                            {isStarred(movie.id) ? (
+                                <div className="star-btn" onClick={unstarHandle}>
+                                    Starred
+                                </div>
+                            ) : (
+                                <div className="star-btn" onClick={starHandle}>
+                                    Star
+                                </div>
+                            )}
 
-                        {isWatchlisted(movie.id) ? (
-                            <div className="addtowatchlist-btn" onClick={removeFromWatchlistHandle}>
-                            Added to Watchlist
-                            </div>
-                        ): (
-                            <div className = "addtowatchlist-btn" onClick = { addToWatchlistHandle }>
-                            Add to Watchlist
-                            </div>
-                    )
-                        }
-                </div>
-            </div>
-        </div >
+                            {isWatchlisted(movie.id) ? (
+                                <div className="addtowatchlist-btn" onClick={removeFromWatchlistHandle}>
+                                    Added to Watchlist
+                                </div>
+                            ) : (
+                                <div className="addtowatchlist-btn" onClick={addToWatchlistHandle}>
+                                    Add to Watchlist
+                                </div>
+                            )
+                            }
+                        </div>
+                    </div>
+                </NavLink>
+            </div >
         </>
     )
 }
