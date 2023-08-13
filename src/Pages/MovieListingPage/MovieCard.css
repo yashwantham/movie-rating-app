@@ -1,0 +1,69 @@
+.moviecard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18rem;
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 2rem;
+}
+
+.moviecardimg-container {
+    width: 100%;
+    height: 17rem;
+}
+
+.moviecardimg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.movie-content-n-btns {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contentd {
+    padding: 5px 0;
+}
+
+.moviecard-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.moviecard-btns-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.star-btn {
+    color: #fff;
+    background-color: #323332;
+    padding: 0.25rem 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.addtowatchlist-btn {
+    color: #fff;
+    background-color: #323332;
+    padding: 0.25rem 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 5px;
+}
