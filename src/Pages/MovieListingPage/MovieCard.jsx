@@ -49,7 +49,9 @@ export function MovieCard({ movie }) {
                         <div className="moviecard-summary contentd">
                             {movie.summary.length > 120 ? `${movie.summary.substring(0, 120)}...` : movie.summary}
                         </div>
-                        <div className="moviecard-btns-container contentd">
+                    </div>
+                </NavLink>
+                <div className="moviecard-btns-container contentd">
                             {isStarred(movie.id) ? (
                                 <div className="star-btn" onClick={unstarHandle}>
                                     Starred
@@ -71,8 +73,6 @@ export function MovieCard({ movie }) {
                             )
                             }
                         </div>
-                    </div>
-                </NavLink>
             </div >
         </>
     )
